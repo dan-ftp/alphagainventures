@@ -4,6 +4,99 @@
 <head>
     <title>Alpha Gain Ventures</title>
     <link rel="icon" type="image/png" href="/alpha_gain_logo.png">
+    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Old-print dictionary serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --paper: #f6f1e6;
+      --ink: #1f1b16;
+      --muted: #5a4f43;
+    }
+
+    body{
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+
+      /* Old dictionary core */
+      font-family: "EB Garamond", Garamond, "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 18px;
+      line-height: 1.55;
+
+      /* Better typesetting */
+      font-kerning: normal;
+      font-variant-ligatures: common-ligatures;
+      text-rendering: optimizeLegibility;
+    }
+
+    main{
+      max-width: 68ch;          /* dictionary-ish measure */
+      margin: 56px auto;
+      padding: 0 22px;
+    }
+
+    h1{
+      font-size: 28px;
+      margin: 0 0 18px 0;
+      letter-spacing: 0.01em;
+    }
+
+    .entry{
+      padding: 18px 0;
+      border-top: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .headword{
+      font-weight: 600;
+      font-size: 1.35em;
+      letter-spacing: 0.01em;
+    }
+
+    .pos{
+      margin-left: 0.5em;
+      color: var(--muted);
+      font-variant-caps: small-caps;
+      letter-spacing: 0.04em;
+      font-size: 0.95em;
+    }
+
+    .pron{
+      margin-left: 0.6em;
+      color: var(--muted);
+      font-family: "IM Fell DW Pica", "EB Garamond", serif;
+      font-style: italic;
+      font-size: 0.98em;
+      white-space: nowrap;
+    }
+
+    .sense{
+      margin-top: 10px;
+    }
+
+    .n{
+      color: var(--muted);
+      font-variant-numeric: oldstyle-nums;
+      margin-right: 0.35em;
+    }
+
+    .example{
+      margin-top: 8px;
+      color: var(--muted);
+      font-style: italic;
+      padding-left: 14px;
+      border-left: 2px solid rgba(0,0,0,0.12);
+    }
+
+    /* Nice-to-have if supported */
+    p{ hyphens: auto; }
+  </style>
 </head>
 <body>
 
