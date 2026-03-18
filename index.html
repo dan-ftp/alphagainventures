@@ -1,119 +1,231 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Alpha Gain Ventures</title>
     <link rel="icon" type="image/png" href="/alpha_gain_logo.png">
-    
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Old-print dictionary serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --paper: #f6f1e6;
-      --ink: #1f1b16;
-      --muted: #5a4f43;
+      --navy: #142B4D;
+      --ink: #202733;
+      --slate: #667487;
+      --cloud: #F7F9FB;
+      --mist: #EEF2F6;
+      --line: #D8DFE7;
+      --white: #FFFFFF;
     }
+
+    *{ box-sizing: border-box; }
 
     body{
       margin: 0;
-      background: var(--paper);
+      min-height: 100vh;
+      padding: 32px 20px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at top center, rgba(142,161,184,0.16), transparent 34%),
+        linear-gradient(180deg, var(--white) 0%, var(--cloud) 58%, var(--mist) 100%);
       color: var(--ink);
-
-      /* Old dictionary core */
-      font-family: "EB Garamond", Garamond, "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: 18px;
-      line-height: 1.55;
-
-      /* Better typesetting */
-      font-kerning: normal;
-      font-variant-ligatures: common-ligatures;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     main{
-      max-width: 68ch;          /* dictionary-ish measure */
-      margin: 56px auto;
-      padding: 0 22px;
+      width: min(920px, 100%);
+      position: relative;
+    }
+
+    .panel{
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: clamp(32px, 5vw, 56px);
+      text-align: center;
+      box-shadow: 0 18px 50px rgba(20, 43, 77, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-line{
+      width: 72px;
+      height: 4px;
+      margin: 0 auto 28px;
+      background: var(--navy);
+      border-radius: 999px;
     }
 
     h1{
-      font-size: 28px;
-      margin: 0 0 18px 0;
-      letter-spacing: 0.01em;
-    }
-
-    .entry{
-      padding: 18px 0;
-      border-top: 1px solid rgba(0,0,0,0.12);
-    }
-
-    .headword{
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
       font-weight: 600;
-      font-size: 1.35em;
-      letter-spacing: 0.01em;
     }
 
-    .pos{
-      margin-left: 0.5em;
-      color: var(--muted);
-      font-variant-caps: small-caps;
+    .tagline{
+      margin: 18px auto 0;
+      max-width: 40rem;
+      color: var(--slate);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .tagline em{
+      font-style: normal;
+    }
+
+    .logo-wrap{
+      margin: clamp(32px, 5vw, 48px) 0 clamp(28px, 4vw, 40px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-frame{
+      width: min(240px, 58vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      border: 1px solid rgba(20,43,77,0.08);
+      background: linear-gradient(180deg, rgba(247,249,251,0.98) 0%, rgba(238,242,246,0.98) 100%);
+    }
+
+    .logo-frame img{
+      width: min(180px, 72%);
+      height: auto;
+      display: block;
+    }
+
+    .definition-card{
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 26px 28px;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(247,249,251,0.92);
+    }
+
+    .term{
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .term b{
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .term em{
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .definition{
+      margin: 14px 0 0;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .definition b{
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .definition + .definition{
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact{
+      margin-top: 34px;
+    }
+
+    .contact a{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 132px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
       letter-spacing: 0.04em;
-      font-size: 0.95em;
+      transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
     }
 
-    .pron{
-      margin-left: 0.6em;
-      color: var(--muted);
-      font-family: "IM Fell DW Pica", "EB Garamond", serif;
-      font-style: italic;
-      font-size: 0.98em;
-      white-space: nowrap;
+    .contact a:hover{
+      background: var(--navy);
+      color: var(--white);
+      transform: translateY(-1px);
     }
 
-    .sense{
-      margin-top: 10px;
-    }
+    @media (max-width: 640px){
+      body{
+        padding: 20px 14px;
+      }
 
-    .n{
-      color: var(--muted);
-      font-variant-numeric: oldstyle-nums;
-      margin-right: 0.35em;
-    }
+      .panel{
+        border-radius: 22px;
+        padding: 28px 20px;
+      }
 
-    .example{
-      margin-top: 8px;
-      color: var(--muted);
-      font-style: italic;
-      padding-left: 14px;
-      border-left: 2px solid rgba(0,0,0,0.12);
-    }
+      .definition-card{
+        padding: 20px 18px;
+      }
 
-    /* Nice-to-have if supported */
-    p{ hyphens: auto; }
+      .tagline{
+        letter-spacing: 0.12em;
+      }
+    }
   </style>
 </head>
 <body>
 
-    <div style="text-align: center;">
+    <main>
+      <section class="panel">
+        <div class="brand-line"></div>
 
-    <h1>Alpha Gain Ventures</h1>
-    <p><em>investing in the picks and shovels of the fusion energy industry</em></p>
+        <h1>Alpha Gain Ventures</h1>
+        <p class="tagline"><em>investing in the picks and shovels of the fusion energy industry</em></p>
 
-    <img src="alpha_gain_logo.png" width="150">
-        
-    <p><b>al'pha</b> (ˈælfə) <em>noun</em></p>
-    <p><b>physics:</b> a helium nucleus emitted as a product of a fusion reaction</p>
-    <b>finance:</b> measure of investment returns over a benchmark</p>
-    
-    <p><a href="mailto:dan@alphagain.ventures">contact</a></p>
+        <div class="logo-wrap">
+          <div class="logo-frame">
+            <img src="alpha_gain_logo.png" width="150" alt="">
+          </div>
+        </div>
 
-    </div>
+        <div class="definition-card">
+          <p class="term"><b>al'pha</b> (ˈælfə) <em>noun</em></p>
+          <p class="definition"><b>physics:</b> a helium nucleus emitted as a product of a fusion reaction</p>
+          <p class="definition"><b>finance:</b> measure of investment returns over a benchmark</p>
+        </div>
+
+        <p class="contact"><a href="mailto:dan@alphagain.ventures">contact</a></p>
+      </section>
+    </main>
 
 </body>
 </html>
